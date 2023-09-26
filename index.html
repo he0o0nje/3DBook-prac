@@ -3,57 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>3dBook</title>
+    <link rel="stylesheet" href="./css/main.css" />
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
-    <style>
-      body {
-        margin: 100px auto;
-        width: 500px;
-      }
-      .gd_3dGrp {
-        cursor: url(../img/sub/3d_cursor.svg), pointer !important;
-        position: relative;
-        transform-style: preserve-3d;
-        perspective: 1800px;
-        margin-bottom: 30px;
-        user-select: none;
-      }
-      .gd_3dGrp .gd_img {
-        position: relative;
-        width: 400px;
-        box-shadow: 5px 12px 10px rgba(0, 0, 0, 0.15);
-        margin-bottom: 0;
-        transform-style: preserve-3d;
-        transition: 0.5s;
-      }
-      .gd_3dGrp .gd_img::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 58px;
-        height: 98.92%;
-        transform-origin: left;
-        background: url(./img/sub_book_left.jfif);
-        background-position: center;
-        transform: rotateY(-90deg) translateX(-57px);
-        background-size: cover;
-      }
-      .gd_3dGrp .gd_img::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0px;
-        width: 100%;
-        height: 99.27%;
-        transform-origin: center;
-        background: url(./img/sub_book_back.jfif);
-        background-position: center;
-        transform: rotateY(180deg) translateZ(56px);
-        background-size: cover;
-      }
-      .gd_3dGrp .gd_img img {
-        width: 100%;
-      }
-    </style>
+    <script src="./js/main.js"></script>
   </head>
   <body>
     <div class="gd_3dGrp">
@@ -61,33 +13,5 @@
         <img src="./img/sub_book.jfif" alt="" />
       </div>
     </div>
-    <script>
-      $(function () {
-        var isRotated = false;
-
-        $(".gd_img").click(function () {
-          if (isRotated) {
-            $(this).css("transform", "rotateY(40deg)");
-            isRotated = false;
-          } else {
-            $(this).css("transform", "rotateY(180deg)");
-            isRotated = true;
-          }
-        });
-
-        $(".gd_img").hover(
-          function () {
-            if (!isRotated) {
-              $(this).css("transform", "rotateY(45deg)");
-            }
-          },
-          function () {
-            if (!isRotated) {
-              $(this).css("transform", "rotateY(0deg)");
-            }
-          }
-        );
-      });
-    </script>
   </body>
 </html>
